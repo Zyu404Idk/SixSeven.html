@@ -1,8 +1,13 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SixSeven UHC | Official Server</title>  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">  <style>
+  <title>SixSeven UHC | Official Server</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body { background: #080a12; color: #fff; font-family: "Poppins", sans-serif; overflow-x: hidden; }
@@ -34,7 +39,6 @@
       to { transform: translate(10%, 8%) scale(1.25); }
     }
 
-    /* SMALL PARTICLES */
     .particles {
       position: absolute;
       inset: 0;
@@ -55,20 +59,10 @@
     }
 
     @keyframes particleFloat {
-      0% {
-        transform: translateY(110vh);
-        opacity: 0;
-      }
-      15% {
-        opacity: .75;
-      }
-      85% {
-        opacity: .4;
-      }
-      100% {
-        transform: translateY(-10vh) translateX(35px);
-        opacity: 0;
-      }
+      0% { transform: translateY(110vh); opacity: 0; }
+      15% { opacity: .75; }
+      85% { opacity: .4; }
+      100% { transform: translateY(-10vh) translateX(35px); opacity: 0; }
     }
 
     nav {
@@ -97,6 +91,7 @@
       font-size: 30px;
       font-weight: 900;
       letter-spacing: 3px;
+      white-space: nowrap;
       text-shadow: 0 0 10px #ff2525, 0 0 25px #f00;
       animation: logoGlow 2.2s ease-in-out infinite alternate;
     }
@@ -191,12 +186,15 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* FIXED SIXSEVEN TITLE */
     .hero-content h1 {
       font-family: "Orbitron", sans-serif;
-      font-size: clamp(45px,8vw,92px);
+      font-size: clamp(38px, 10vw, 92px);
       font-weight: 900;
-      letter-spacing: 5px;
-      text-shadow: 0 0 10px #ff2a2a,0 0 30px #f00,0 0 55px rgba(255,0,0,.55);
+      letter-spacing: 1px;
+      white-space: nowrap;
+      display: inline-block;
+      text-shadow: 0 0 10px #ff2a2a, 0 0 30px #f00, 0 0 55px rgba(255,0,0,.55);
       animation: titlePulse 2.4s ease-in-out infinite alternate;
     }
 
@@ -390,101 +388,131 @@
     }
 
     @media (max-width:600px) {
+      .hero { padding: 18px; }
       .hero-content { margin-top:110px; }
       .logo { font-size:23px; }
       .server-box { padding:20px 15px; }
+
+      /* Keeps SIXSEVEN on one line on phones */
+      .hero-content h1 {
+        font-size: 40px;
+        letter-spacing: 0;
+      }
     }
-  </style></head><body>
+  </style>
+</head>
+
+<body>
   <div class="hero" id="home">
-    <div class="particles" id="particles"></div><nav>
-  <div class="logo">SIX<span>SEVEN</span></div>
+    <div class="particles" id="particles"></div>
 
-  <div>
-    <button class="menu-button" onclick="toggleMenu()" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
+    <nav>
+      <div class="logo">SIX<span>SEVEN</span></div>
 
-    <div class="menu" id="menu">
-      <a href="#home" onclick="closeMenu()">🏠 Home</a>
-      <a href="#information" onclick="closeMenu()">⚔ Information</a>
-      <a href="#owner" onclick="closeMenu()">👑 Owner</a>
-      <a href="#players" onclick="closeMenu()">👥 Players</a>
-      <a href="#leaderboards" onclick="closeMenu()">🏆 Leaderboards</a>
-      <a href="#rules" onclick="closeMenu()">📜 Server Rules</a>
-      <a href="https://discord.gg/pjp23ub8" target="_blank">💬 Join Discord</a>
-      <a href="https://youtube.com/@zeusduff" target="_blank">▶ YouTube</a>
+      <div>
+        <button class="menu-button" onclick="toggleMenu()" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <div class="menu" id="menu">
+          <a href="#home" onclick="closeMenu()">🏠 Home</a>
+          <a href="#information" onclick="closeMenu()">⚔ Information</a>
+          <a href="#owner" onclick="closeMenu()">👑 Owner</a>
+          <a href="#players" onclick="closeMenu()">👥 Players</a>
+          <a href="#leaderboards" onclick="closeMenu()">🏆 Leaderboards</a>
+          <a href="#rules" onclick="closeMenu()">📜 Server Rules</a>
+          <a href="https://discord.gg/pjp23ub8" target="_blank">💬 Join Discord</a>
+          <a href="https://youtube.com/@zeusduff" target="_blank">▶ YouTube</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+      <h1>SIX<span>SEVEN</span></h1>
+
+      <p>The competitive Minecraft Bedrock UHC server. Survive, fight, rank up, and become a SixSeven legend.</p>
+
+      <div class="server-box">
+        <h2>⚔ SERVER ADDRESS</h2>
+        <div class="ip">SixSevenUHCs.ddns.net</div>
+        <div class="port">Port: 19134</div>
+        <div class="status">Server Status: <span class="online">● Online</span></div>
+      </div>
+
+      <div class="buttons">
+        <a class="btn join-btn" href="#information">⚔ Explore Server</a>
+        <a class="btn discord-btn" href="https://discord.gg/pjp23ub8" target="_blank">💬 Join Discord</a>
+        <a class="btn youtube-btn" href="https://youtube.com/@zeusduff" target="_blank">▶ YouTube</a>
+      </div>
     </div>
   </div>
-</nav>
 
-<div class="hero-content">
-  <h1>SIX<span>SEVEN</span></h1>
-  <p>The competitive Minecraft Bedrock UHC server. Survive, fight, rank up, and become a SixSeven legend.</p>
-
-  <div class="server-box">
-    <h2>⚔ SERVER ADDRESS</h2>
-    <div class="ip">SixSevenUHCs.ddns.net</div>
-    <div class="port">Port: 19134</div>
-    <div class="status">Server Status: <span class="online">● Online</span></div>
-  </div>
-
-  <div class="buttons">
-    <a class="btn join-btn" href="#information">⚔ Explore Server</a>
-    <a class="btn discord-btn" href="https://discord.gg/pjp23ub8" target="_blank">💬 Join Discord</a>
-    <a class="btn youtube-btn" href="https://youtube.com/@zeusduff" target="_blank">▶ YouTube</a>
-  </div>
-</div>
-
-  </div>  <section id="information" class="reveal">
+  <section id="information" class="reveal">
     <h2 class="section-title">SERVER <span>INFORMATION</span></h2>
-    <p class="section-text">SixSeven is a competitive server for players who enjoy UHC battles, ranked matches, events, rewards, and a strong community.</p><div class="features">
-  <div class="feature-card"><h3>⚔ UHC Mode</h3><p>Fight intense UHC battles, gather resources, and survive until you are the last player standing.</p></div>
-  <div class="feature-card"><h3>💬 Friendly Staff</h3><p>Helpful staff members keep the server fair, active, and enjoyable for everyone.</p></div>
-  <div class="feature-card"><h3>🏆 Ranked Matches</h3><p>Prove your skills, climb the ranks, and earn respect in competitive PvP.</p></div>
-  <div class="feature-card"><h3>📊 Leaderboards</h3><p>See the top players, strongest fighters, and biggest winners of SixSeven.</p></div>
-  <div class="feature-card"><h3>🎁 Giveaways</h3><p>Join Discord for giveaways, rewards, updates, and announcements.</p></div>
-  <div class="feature-card"><h3>📅 Frequent Events</h3><p>Enjoy tournaments, challenges, community events, and more exciting updates.</p></div>
-</div>
+    <p class="section-text">SixSeven is a competitive server for players who enjoy UHC battles, ranked matches, events, rewards, and a strong community.</p>
 
-  </section>  <section class="dark-section reveal" id="owner">
+    <div class="features">
+      <div class="feature-card"><h3>⚔ UHC Mode</h3><p>Fight intense UHC battles, gather resources, and survive until you are the last player standing.</p></div>
+      <div class="feature-card"><h3>💬 Friendly Staff</h3><p>Helpful staff members keep the server fair, active, and enjoyable for everyone.</p></div>
+      <div class="feature-card"><h3>🏆 Ranked Matches</h3><p>Prove your skills, climb the ranks, and earn respect in competitive PvP.</p></div>
+      <div class="feature-card"><h3>📊 Leaderboards</h3><p>See the top players, strongest fighters, and biggest winners of SixSeven.</p></div>
+      <div class="feature-card"><h3>🎁 Giveaways</h3><p>Join Discord for giveaways, rewards, updates, and announcements.</p></div>
+      <div class="feature-card"><h3>📅 Frequent Events</h3><p>Enjoy tournaments, challenges, community events, and more exciting updates.</p></div>
+    </div>
+  </section>
+
+  <section class="dark-section reveal" id="owner">
     <h2 class="section-title">SERVER <span>OWNER</span></h2>
-    <p class="section-text">Meet the owner behind SixSeven.</p><div class="owner-card">
-  <img class="owner-profile" src="https://i.imgur.com/6VBx3io.png" alt="Zyuuu Profile Picture">
-  <h3>Zyuuu</h3>
-  <div class="owner-role">👑 Owner of SixSeven Server</div>
-  <p>Zyuuu is the owner and creator of SixSeven. The goal is to build a fun, competitive, and active Minecraft Bedrock community.</p>
-</div>
+    <p class="section-text">Meet the owner behind SixSeven.</p>
 
-  </section>  <section id="players" class="reveal">
+    <div class="owner-card">
+      <img class="owner-profile" src="https://i.imgur.com/6VBx3io.png" alt="Zyuuu Profile Picture">
+      <h3>Zyuuu</h3>
+      <div class="owner-role">👑 Owner of SixSeven Server</div>
+      <p>Zyuuu is the owner and creator of SixSeven. The goal is to build a fun, competitive, and active Minecraft Bedrock community.</p>
+    </div>
+  </section>
+
+  <section id="players" class="reveal">
     <h2 class="section-title">ONLINE <span>PLAYERS</span></h2>
     <p class="section-text">Players currently connected to SixSeven Server.</p>
     <div class="player-count">0</div>
     <p style="color:#bdbdbd;margin-top:8px;">Players Online</p>
-  </section>  <section class="dark-section reveal" id="leaderboards">
+  </section>
+
+  <section class="dark-section reveal" id="leaderboards">
     <h2 class="section-title">TOP <span>LEADERBOARDS</span></h2>
-    <p class="section-text">Fight your way to the top and make your name known.</p><div class="leaderboard">
-  <h3>⚔ TOP UHC PLAYERS</h3>
-  <div class="leader-row"><span><span class="rank-number">#1</span> Coming Soon</span><span>0 Wins</span></div>
-  <div class="leader-row"><span><span class="rank-number">#2</span> Coming Soon</span><span>0 Wins</span></div>
-  <div class="leader-row"><span><span class="rank-number">#3</span> Coming Soon</span><span>0 Wins</span></div>
-</div>
+    <p class="section-text">Fight your way to the top and make your name known.</p>
 
-  </section>  <section id="rules" class="reveal">
+    <div class="leaderboard">
+      <h3>⚔ TOP UHC PLAYERS</h3>
+      <div class="leader-row"><span><span class="rank-number">#1</span> Coming Soon</span><span>0 Wins</span></div>
+      <div class="leader-row"><span><span class="rank-number">#2</span> Coming Soon</span><span>0 Wins</span></div>
+      <div class="leader-row"><span><span class="rank-number">#3</span> Coming Soon</span><span>0 Wins</span></div>
+    </div>
+  </section>
+
+  <section id="rules" class="reveal">
     <h2 class="section-title">SERVER <span>RULES</span></h2>
-    <p class="section-text">Follow these rules to keep SixSeven fair, fun, and active for everyone.</p><div class="features">
-  <div class="rule-card"><h3>1. Respect Everyone</h3><p>Do not insult, bully, threaten, or harass other players or staff members.</p></div>
-  <div class="rule-card"><h3>2. No Cheating</h3><p>Hacks, clients, auto-clickers, exploits, and unfair advantages are not allowed.</p></div>
-  <div class="rule-card"><h3>3. No Teaming</h3><p>Do not team in solo UHC matches unless the event allows it.</p></div>
-  <div class="rule-card"><h3>4. No Spam</h3><p>Do not spam chat, flood messages, or repeatedly advertise anything.</p></div>
-  <div class="rule-card"><h3>5. No Advertising</h3><p>Do not advertise other Minecraft servers or Discord servers.</p></div>
-  <div class="rule-card"><h3>6. Do Not Abuse Bugs</h3><p>Report bugs or glitches to staff instead of using them.</p></div>
-  <div class="rule-card"><h3>7. Listen to Staff</h3><p>Respect staff decisions and contact them calmly on Discord.</p></div>
-  <div class="rule-card"><h3>8. No Inappropriate Names</h3><p>Keep your Minecraft username and skin appropriate.</p></div>
-  <div class="rule-card"><h3>9. Keep Chat Clean</h3><p>Avoid excessive caps, toxic messages, and inappropriate content.</p></div>
-  <div class="rule-card"><h3>10. Have Fun</h3><p>Play fair and help make SixSeven better.</p></div>
-</div>
+    <p class="section-text">Follow these rules to keep SixSeven fair, fun, and active for everyone.</p>
 
-  </section>  <footer>© 2026 SixSeven Server • Not affiliated with Mojang or Microsoft.</footer>  <script>
+    <div class="features">
+      <div class="rule-card"><h3>1. Respect Everyone</h3><p>Do not insult, bully, threaten, or harass other players or staff members.</p></div>
+      <div class="rule-card"><h3>2. No Cheating</h3><p>Hacks, clients, auto-clickers, exploits, and unfair advantages are not allowed.</p></div>
+      <div class="rule-card"><h3>3. No Teaming</h3><p>Do not team in solo UHC matches unless the event allows it.</p></div>
+      <div class="rule-card"><h3>4. No Spam</h3><p>Do not spam chat, flood messages, or repeatedly advertise anything.</p></div>
+      <div class="rule-card"><h3>5. No Advertising</h3><p>Do not advertise other Minecraft servers or Discord servers.</p></div>
+      <div class="rule-card"><h3>6. Do Not Abuse Bugs</h3><p>Report bugs or glitches to staff instead of using them.</p></div>
+      <div class="rule-card"><h3>7. Listen to Staff</h3><p>Respect staff decisions and contact them calmly on Discord.</p></div>
+      <div class="rule-card"><h3>8. No Inappropriate Names</h3><p>Keep your Minecraft username and skin appropriate.</p></div>
+      <div class="rule-card"><h3>9. Keep Chat Clean</h3><p>Avoid excessive caps, toxic messages, and inappropriate content.</p></div>
+      <div class="rule-card"><h3>10. Have Fun</h3><p>Play fair and help make SixSeven better.</p></div>
+    </div>
+  </section>
+
+  <footer>© 2026 SixSeven Server • Not affiliated with Mojang or Microsoft.</footer>
+
+  <script>
     const menu = document.getElementById("menu");
     const menuButton = document.querySelector(".menu-button");
 
@@ -517,7 +545,6 @@
     window.addEventListener("scroll", revealOnScroll);
     revealOnScroll();
 
-    /* Only 10 small particles: smooth for phones */
     const particleContainer = document.getElementById("particles");
 
     for (let i = 0; i < 10; i++) {
@@ -528,5 +555,6 @@
       particle.style.animationDelay = (Math.random() * 6) + "s";
       particleContainer.appendChild(particle);
     }
-  </script></body>
+  </script>
+</body>
 </html>
